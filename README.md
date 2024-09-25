@@ -1,4 +1,5 @@
-# Linear Search and Binary search
+# DATE:
+# EXP 7: Linear Search and Binary search
 ## Aim:
 To write a program to perform linear search and binary search using python programming.
 ## Equipment’s required:
@@ -19,13 +20,48 @@ To write a program to perform linear search and binary search using python progr
 ## Program:
 i)	#Use a linear search method to match the item in a list.
 ```
-
+def lin_srh(arr,n,k):
+    for i in range(0,n):
+        if(arr[i]==k):
+            return i
+    else:
+        return -1
+arr=eval(input())
+k=eval(input())
+n=len(arr)
+arr.sort()
+res=lin_srh(arr,n,k)
+if (res==-1):
+    print(arr)
+    print("Element not found")
+else:
+    print(arr)
+    print("Element found at index: ",res)
 
 
 ```
 ii)	# Find the element in a list using Binary Search(Iterative Method).
 ```
-
+def bin_srh_iter(arr,k,low,high):
+    while(low<=high):
+        mid=low+(high-low)//2
+        if (arr[mid]==k):
+            return mid
+        elif (arr[mid]<k):
+            low=mid+1
+        else:
+            high=mid-1
+    return -1
+arr=eval(input())
+k=eval(input())
+arr.sort()
+res=bin_srh_iter(arr,k,0,len(arr)-1)
+if (res==-1):
+    print(arr)
+    print("Element not found")
+else:
+    print(arr)
+    print("Element found at index: ",res)
 
 
 
@@ -33,13 +69,45 @@ ii)	# Find the element in a list using Binary Search(Iterative Method).
 ```
 iii)	# Find the element in a list using Binary Search (recursive Method).
 ```
-
+def bin_srh_rec(arr,k,low,high):
+    if high>=low:
+        mid=low+(high-low)//2
+        if (arr[mid]==k):
+            return mid
+        elif (arr[mid]>k):
+            return bin_srh_rec(arr,k,low,mid-1)
+        else:
+            return bin_srh_rec(arr,k,mid+1,high)
+    else:
+        return -1
+arr=eval(input())
+k=eval(input())
+arr.sort()
+res=bin_srh_rec(arr,k,0,len(arr)-1)
+if (res==-1):
+    print(arr)
+    print("Element not found")
+else:
+    print(arr)
+    print("Element found at index: ",res)
 
 
 
 
 ```
-## Sample Input and Output
+## Output
+
+# Use a linear search method to match the item in a list.
+
+![image](https://github.com/user-attachments/assets/277ff10b-45cb-4b2d-b985-8f9968eb158a)
+
+# Find the element in a list using Binary Search(Iterative Method).
+
+![image](https://github.com/user-attachments/assets/a13f7703-d9ec-4b81-a6f7-826c2eab77d0)
+
+# Find the element in a list using Binary Search (recursive Method).
+![image](https://github.com/user-attachments/assets/52c88ef3-dec0-472a-bb97-bbdaa69a7460)
+
 
 
 
